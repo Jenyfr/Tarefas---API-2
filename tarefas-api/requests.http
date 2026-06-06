@@ -1,0 +1,58 @@
+### Listar todas as tarefas
+GET http://localhost:8080/api/tarefas
+
+### Criar uma nova tarefa
+POST http://localhost:8080/api/tarefas
+Content-Type: application/json
+
+{
+  "titulo": "Estudar Spring Boot",
+  "descricao": "Implementar os metodos HTTP da atividade",
+  "concluida": false,
+  "prioridade": "ALTA"
+}
+
+### Buscar tarefa por ID
+GET http://localhost:8080/api/tarefas/1
+
+### Atualizar tarefa por ID
+PUT http://localhost:8080/api/tarefas/1
+Content-Type: application/json
+
+{
+  "titulo": "Estudar API REST",
+  "descricao": "Testar GET, POST, PUT e DELETE",
+  "concluida": true,
+  "prioridade": "MEDIA"
+}
+
+### Excluir tarefa por ID
+DELETE http://localhost:8080/api/tarefas/1
+
+### Testar erro de validacao
+POST http://localhost:8080/api/tarefas
+Content-Type: application/json
+
+{
+  "titulo": "",
+  "descricao": "Esta requisicao deve retornar 400",
+  "concluida": false,
+  "prioridade": "BAIXA"
+}
+
+### Testar tarefa nao encontrada
+GET http://localhost:8080/api/tarefas/999
+
+### Testar prioridade invalida
+POST http://localhost:8080/api/tarefas
+Content-Type: application/json
+
+{
+  "titulo": "Estudar validacao",
+  "descricao": "Esta requisicao deve retornar 400",
+  "concluida": false,
+  "prioridade": "URGENTE"
+}
+
+### Testar ID invalido
+GET http://localhost:8080/api/tarefas/0
